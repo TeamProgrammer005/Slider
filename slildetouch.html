@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        width: 100vw;
+        height: auto;
+        margin: 0;
+        padding: 0;
+    }
+    .container{
+        width: 100%;
+        height: 100vh;
+        max-height: 100vh;
+        overflow: hidden;
+    }
+    .slide{
+        width: 100%;
+        height: 100%;
+    }
+    .slide img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        aspect-ratio: 1;
+    }
+</style>
+<body>
+    <div class="container">
+        <div class="slide">
+            <img id="imgSrc" src="game1.jpg" alt="">
+        </div>
+    </div>
+    <div class="section" id="sec" style="display: none;">
+       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo labore voluptas laboriosam cumque consequuntur consequatur ab quasi, earum, rem totam iusto et magnam, vel eum quis fugit! Odio voluptate itaque, beatae voluptatum delectus commodi aliquid cupiditate tempore dicta! Magni earum praesentium, natus fuga atque incidunt doloribus in architecto ab consequatur illum veritatis sequi dolorum magnam rem cum odio tempora nam nemo placeat modi aperiam beatae. Voluptatum aut eveniet et incidunt ut velit repellendus assumenda blanditiis possimus quidem minus est quae sit eum omnis eligendi, ipsum nihil. Repudiandae, qui cum! Est deserunt ut numquam recusandae consectetur nesciunt totam soluta maxime fugiat.</p> 
+    </div>
+</body>
+<script>
+    let n = 0
+    const imgSrc = document.getElementById("imgSrc")
+    let imgArray = ["game1.jpg", "game3.jpg", "game4.jpg"]
+    document.addEventListener('touchstart', function(){
+        if(n < 2){
+            n = n + 1
+        }
+        else{
+            n = 0
+        }
+       imgArray.forEach((e,i) => {
+        if(i === n){
+            imgSrc.src = e
+        }
+       });
+       if(n === 2){
+        document.getElementById("sec").style.display = "block"
+        document.getElementById("sec").scrollIntoView({behavior: "smooth"})
+       }
+    })
+</script>
+</html>
